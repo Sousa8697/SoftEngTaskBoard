@@ -13,3 +13,7 @@ class Account(models.Model):
 
     def __str__(self):
         return self.username
+
+#Table full of tasks where each task is linked to an account id
+# Tasks will have a title, due date, post date, description, section (to-do, doing, done)
+# Class Task(models.Model):

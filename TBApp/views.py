@@ -5,6 +5,8 @@ from django.shortcuts import render
 from TBApp.forms import AccountForm
 from django import forms
 # Create your views here.
+
+
 def signIn(request):
     if request.method == 'POST':
         pass
@@ -12,6 +14,7 @@ def signIn(request):
 
 def home(request):
     return render(request,"TBApp/index.html")
+
 
 def signUp(request):
     form = AccountForm()

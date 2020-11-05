@@ -9,7 +9,13 @@ class AccountForm(forms.ModelForm):
         widgets = {
         'password': forms.PasswordInput(),
     }
-
+''' Forms Needed:
+    New Task Form
+    Sign-In Form
+    Possibly Update Account Info Form
+'''
+# class NewTaskForm(forms.ModelForm):
+    # class Meta:
     
 
 
