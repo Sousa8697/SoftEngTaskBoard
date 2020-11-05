@@ -15,15 +15,16 @@ def home(request):
 
 def signUp(request):
     form = AccountForm()
+    errors = ""
     if request.method == "POST":
         profileForm = AccountForm(request.POST)
         if profileForm.is_valid():
             profileForm.save(commit=True)
             return home(request)
         else:
-            print("error")
+            errors = profileForm.errors
 
-    return render(request,"TBApp/signUp.html",{'form':form})
+    return render(request,"TBApp/signUp.html",{'form':form, 'errors':errors})
 
 def profile(request):
     return render(request,"TBApp/profile.html")
