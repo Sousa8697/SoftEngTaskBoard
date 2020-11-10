@@ -8,12 +8,12 @@
     <body>
         <div class="container">
             <div class="jumbotron">
-                <h1>New Task</h1>
+                <h1>Sign Up</h1>
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
                     {{errors}}
-                    <input type="submit" value="Assign New Task">
+                    <input type="submit" value="Sign up">
                 </form>
             </div>
         </div>
