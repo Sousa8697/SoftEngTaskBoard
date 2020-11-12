@@ -18,7 +18,7 @@ class AccountForm(forms.ModelForm):
 class NewTaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        exclude = {}
+        exclude = {post_date}
         #anything else?
 
 # class NewTaskForm(forms.ModelForm):

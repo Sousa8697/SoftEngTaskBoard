@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from TBApp.forms import AccountForm
 from TBApp.forms import NewTaskForm
 from django import forms
+from .models import Account
 # Create your views here.
 
 
@@ -49,9 +50,5 @@ def signUp(request):
     return render(request,"TBApp/signUp.html",{'form':form, 'errors':errors})
 @login_required(login_url="/accounts/sign-in/")
 def profile(request):
+    # Get post request and get user id from post request
     return render(request,"TBApp/profile.html")
-
-def testTask(request):
-    form = NewTaskForm
-    errors = ""
-    return render(request, "TBApp/NewTask.html")
