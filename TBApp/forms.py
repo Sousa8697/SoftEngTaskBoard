@@ -21,6 +21,8 @@ class NewTaskForm(forms.ModelForm):
         exclude = {}
         #anything else?
 
+# class NewTaskForm(forms.ModelForm):
+    # class Meta:
     
 
 

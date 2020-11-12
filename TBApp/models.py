@@ -16,6 +16,7 @@ class Account(models.Model):
 
 #Table full of tasks where each task is linked to an account id
 # Tasks will have a title, due date, post date, description, section (to-do, doing, done)
+
 class Task(models.Model):
 
     SECTION_CHOICES = (
@@ -32,3 +33,5 @@ class Task(models.Model):
 
     def __str__(self):      #Do we need this? I'll put it here just in case.
         return self.title
+# Class Task(models.Model):
+
