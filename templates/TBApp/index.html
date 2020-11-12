@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang=en>
     <head>
+        <style>
+            .button {background-color: #2B9348;}
+              body {
+                background-color: #2B9348;
+            }
+            ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #DDDF00;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #DDDF00;
+}
+            
+            </style>
         <meta charset="utf-8">
-        <title>Example</title>
+        <title>Home</title>
     </head>
     <body>
-        <h1>Home</h1>
+        <ul>
+            <li style = "float:right"><a  href="accounts/sign-in">Sign Out</a></li> 
+            <li style = "float:right"><a   href="/accounts/profile">Profile</a></li>
+            <li style = "float:right"><a   href="#send to index page not sure how">Home</a></li>
+            <br><div style = "float:left; width: 50px; ">&nbsp;</div><button class = "button button" >Add Task </button>
+         </ul>
+         <div style = "float:left; width: 50px; "> Title</div> <input type = "text" name="task">
     </body>
 </html>
