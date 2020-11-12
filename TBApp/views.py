@@ -3,6 +3,7 @@ from django.shortcuts import render
 # from django.http import HttpResponseRedirect, HttpResponse
 # from django.contrib.auth import authenticate, login, logout
 from TBApp.forms import AccountForm
+from TBApp.forms import NewTaskForm
 from django import forms
 # Create your views here.
 
@@ -31,3 +32,8 @@ def signUp(request):
 
 def profile(request):
     return render(request,"TBApp/profile.html")
+
+def testTask(request):
+    form = NewTaskForm
+    errors = ""
+    return render(request, "TBApp/NewTask.html")
