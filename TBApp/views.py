@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from TBApp.forms import AccountForm
+from TBApp.forms import NewTaskForm
 from django import forms
 # Create your views here.
 
@@ -49,3 +50,8 @@ def signUp(request):
 @login_required(login_url="/accounts/sign-in/")
 def profile(request):
     return render(request,"TBApp/profile.html")
+
+def testTask(request):
+    form = NewTaskForm
+    errors = ""
+    return render(request, "TBApp/NewTask.html")

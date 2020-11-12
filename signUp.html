@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang=en>
     <head>
+        <style>
+            body {
+                background-color: #2B9348;
+            }
+            </style>
         <meta charset="utf-8">
-        <title>Example</title>
+        <title>Sign Up</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">   
     </head>
     <body>
@@ -13,7 +18,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     {{errors}}
-                    <input type="submit" value="Sign up">
+                    <input type="submit" value="Sign Up">
                 </form>
             </div>
         </div>
