@@ -3,13 +3,10 @@ from django.contrib.auth.models import User
 from .models import Account
 from .models import Task
 
-class AccountForm(forms.ModelForm):
+class UserForm(forms.ModelForm):
     class Meta:
-        model = Account
-        exclude = ['profile_pic','bio']
-        widgets = {
-        'password': forms.PasswordInput(),
-    }
+        model = User
+        fields = ('first_name','last_name','username','email','password')
 ''' Forms Needed:
     New Task Form
     Sign-In Form
@@ -18,7 +15,7 @@ class AccountForm(forms.ModelForm):
 class NewTaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        exclude = {post_date}
+        exclude = {'post_date','accountOwner','section'}
         #anything else?
 
 # class NewTaskForm(forms.ModelForm):

@@ -3,13 +3,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from TBApp.forms import AccountForm
+from TBApp.forms import UserForm
 from TBApp.forms import NewTaskForm
 from django import forms
-from .models import Account
+from .models import Account, Task, User
 # Create your views here.
 
-
+context={}
 def signIn(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -33,14 +33,29 @@ def user_logout(request):
 
 @login_required(login_url="/accounts/sign-in/")
 def home(request):
-    return render(request,"TBApp/index.html")
+    taskForm = NewTaskForm()
+    context['task'] = taskForm
+    if request.method == "POST":
+        taskForm = NewTaskForm(request.POST)
+        if taskForm.is_valid():
+            task = taskForm.save(commit=False)
+            task.accountOwner = User.objects.get(username=request.user)
+            task.save()
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            errors = taskForm.errors
+            context['errors'] = errors
+    context['todoTasks'] = Task.objects.filter(section="to-do", accountOwner_id=request.user.id)
+    context['doingTasks'] = Task.objects.filter(section="doing", accountOwner_id=request.user.id)
+    context['doneTasks'] = Task.objects.filter(section="done", accountOwner_id=request.user.id)
+    return render(request,"TBApp/index.html", context)
 
 
 def signUp(request):
-    form = AccountForm()
+    form = UserForm()
     errors = ""
     if request.method == "POST":
-        profileForm = AccountForm(request.POST)
+        profileForm = UserForm(request.POST)
         if profileForm.is_valid():
             profileForm.save(commit=True)
             return HttpResponseRedirect(reverse('home'))
