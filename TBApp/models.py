@@ -28,7 +28,5 @@ class Task(models.Model):
     description = models.CharField(max_length = 512)
     section = models.CharField(max_length=6, choices=SECTION_CHOICES, default='to-do')
 
-    def __str__(self):      #Do we need this? I'll put it here just in case.
+    def __str__(self):
         return self.title+" "+self.accountOwner
-# Class Task(models.Model):
-
