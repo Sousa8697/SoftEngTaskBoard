@@ -29,6 +29,6 @@ class Task(models.Model):
     section = models.CharField(max_length=6, choices=SECTION_CHOICES, default='to-do')
 
     def __str__(self):      #Do we need this? I'll put it here just in case.
-        return self.title+" "+self.accountOwner
+        return self.title+" "+self.accountOwner.get_username()
 # Class Task(models.Model):
 
