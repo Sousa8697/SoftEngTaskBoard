@@ -16,10 +16,5 @@ class NewTaskForm(forms.ModelForm):
     class Meta:
         model = Task
         exclude = {'post_date','accountOwner','section'}
-        #anything else?
-
-# class NewTaskForm(forms.ModelForm):
-    # class Meta:
-    
 
 

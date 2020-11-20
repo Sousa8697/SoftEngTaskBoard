@@ -23,7 +23,7 @@ def signIn(request):
                 return HttpResponseRedirect(reverse('home'))
         else:
             loginAttempt = "Login failed, please Check the username and password and try again."
-            return render(request,"TBAPP/signIn.html",{'error':loginAttempt})
+            return render(request,"TBApp/signIn.html",{'error':loginAttempt})
     return render(request,"TBApp/signIn.html")
 
 @login_required
@@ -63,7 +63,14 @@ def signUp(request):
             errors = profileForm.errors
 
     return render(request,"TBApp/signUp.html",{'form':form, 'errors':errors})
+
 @login_required(login_url="/accounts/sign-in/")
 def profile(request):
     # Get post request and get user id from post request
-    return render(request,"TBApp/profile.html")
+    user = request.user     #user.ID
+    errors = ""
+    if request.method == "GET":
+        if user.is_authenticated:
+            return render(request,"TBApp/profile.html")
+        else:
+            errors = "Not valid operation"
