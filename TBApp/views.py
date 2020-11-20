@@ -70,7 +70,7 @@ def profile(request):
     user = request.user     #user.ID
     errors = ""
     if request.method == "GET":
-        if user.is_authenticated():
+        if user.is_authenticated:
             return render(request,"TBApp/profile.html")
         else:
             errors = "Not valid operation"
