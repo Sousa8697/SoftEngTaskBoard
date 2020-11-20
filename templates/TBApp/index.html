@@ -56,8 +56,8 @@ li a:hover:not(.active) {
     <body>
         <div class="navigationBar">
             <ul>
-                <li style = "float:right"><a  href="{% url 'logout' %}">Sign Out</a></li> 
-                <li style = "float:right"><a   href="">Profile</a></li>
+                <li style = "float:right"><a   href="{% url 'logout' %}">Sign Out</a></li>
+                <li style = "float:right"> <a href="{% url 'profile' %}" >Profile </a></li>
                 <li style = "float:right"><a   href="{% url 'home' %}">Home</a></li>
                 <br><div style = "float:left; width: 50px; ">&nbsp;</div><button id="addTask" class="button button" >Add Task </button>
             </ul>
