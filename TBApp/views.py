@@ -45,6 +45,19 @@ def home(request):
         else:
             errors = taskForm.errors
             context['errors'] = errors
+    if request.method == "GET":
+        if 'toDo' in request.GET:
+            taskId = request.GET.get('toDo')
+            task = Task.objects.get(id = int(taskId))
+            task.toDo()
+        elif 'toDoing' in request.GET:
+            taskId = request.GET.get('toDoing')
+            task = Task.objects.get(id = int(taskId))
+            task.toDoing()
+        elif 'toDone' in request.GET:
+            taskId = request.GET.get('toDone')
+            task = Task.objects.get(id = int(taskId))
+            task.toDone()
     context['todoTasks'] = Task.objects.filter(section="to-do", accountOwner_id=request.user.id)
     context['doingTasks'] = Task.objects.filter(section="doing", accountOwner_id=request.user.id)
     context['doneTasks'] = Task.objects.filter(section="done", accountOwner_id=request.user.id)

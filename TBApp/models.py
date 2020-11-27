@@ -1,6 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
+# from django.http import HttpResponse
 
 # Create your models here.
 class Account(models.Model):
@@ -30,3 +31,20 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title+" "+self.accountOwner
+<<<<<<< HEAD
+=======
+    
+    def toDo(self):
+        self.section = 'to-do'
+        self.save(update_fields=('section',))
+        
+    def toDoing(self):
+        self.section = 'doing'
+        self.save(update_fields=('section',))
+    
+    def toDone(self):
+        self.section = 'done'
+        self.save(update_fields=('section',))
+# Class Task(models.Model):
+
+>>>>>>> Carlos_Branch
