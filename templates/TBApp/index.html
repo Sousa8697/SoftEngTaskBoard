@@ -71,27 +71,33 @@ li a:hover:not(.active) {
         <div class="main-section">
             <div class="to-do">
                 <h3>To-Do</h3>
-                <ul class="task-section">
-                    {% for task in todoTasks %}
-                        <li>{{task.title}}</li>
-                    {% endfor %}    
-                </ul>
+                <form method="GET">
+                    <ul class="task-section">
+                        {% for task in todoTasks %}
+                            <li>{{task.title}}<button name="toDoing" value="{{task.id}}">Push to Doing</button></li>
+                        {% endfor %}    
+                    </ul>
+                </form>
             </div>
             <div class="doing">
                 <h3>Doing</h3>
-                <ul class="task-section">
-                    {% for task in doingTasks %}
-                        <li>{{task.title}}</li>
-                    {% endfor %}
-                </ul>
+                <form method="GET">
+                    <ul class="task-section">
+                        {% for task in doingTasks %}
+                            <li><button name="toDo" value="{{task.id}}">Push to Do</button>{{task.title}}<button name="toDone" value="{{task.id}}">Push to Done</button></li>
+                        {% endfor %}    
+                    </ul>
+                </form>
             </div>
             <div class="done">
                 <h3>Done</h3>
-                <ul class="task-section">
-                    {% for task in doneTasks %}
-                        <li>{{task.title}}</li>
-                    {% endfor %}
-                </ul>
+                <form method="GET">
+                    <ul class="task-section">
+                        {% for task in doneTasks %}
+                            <li><button name="toDoing" value="{{task.id}}">Push to Doing</button>{{task.title}}</li>
+                        {% endfor %}
+                    </ul>
+                </form>
             </div>
         </div>
     </body>
