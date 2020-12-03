@@ -2,26 +2,64 @@
 <html lang=en>
     <head>
         <style>
-            .button {background-color: #DDDF00;}
+            .button {background-color: #DDDF00;
+                margin-left:150px;
+                width: 70px;
+                height: 25px;
+                }
             body {
                 background-color: #2B9348;
+                
             }
-            h1 {text-align: center;}
+            h1 {text-align: center;
+                margin-top: 200px;
+                
+                }
+            h2 {
+                position:fixed;
+                left: 600px;
+                font-size: 16px;
+                margin-bottom: 20px;
+                
+                
+            }
+            h3{
+                position:fixed;
+                left: 600px;
+                top: 300px;
+                font-size: 16px;
+            }
+
+            h5{
+                position: fixed;
+                top:315px;
+                left:600px;
+            }
             </style>
         <meta charset="utf-8">
         <title>Sign in</title>
     </head>
     <body>
-            <div style = "position:absolute; left:600px; top:250px;">
-        <h1>Sign In</h1>
-        <form action="" method="post">
-            {% csrf_token %}
-            <label style = "float:left; width: 75px;" for="username">Username:</label>
+            <h1>Sign In</h1>
+        
+        <form action="" method="post"> 
+                {% csrf_token %}
+
+            <h2>
+            <label style = "float:left; width: 75px; " for="username">Username:</label>
             <input type="text" name="username" placeholder="Enter Username"><br>
-            <label style = "float:left; width: 75px;" for="password">Password:</label>
-            <input type="password" name="password">
-            <br><div style = "float:left; width: 80px;">&nbsp;</div><a href="{% url 'sign-up' %}"> Sign up</a><br>
-            <br><div style = "float:left; width: 175px; ">&nbsp;</div><input type="submit" class= "button button" value="Sign in">
+        </h2>
+        <h3>
+            <label style = "float:left; width: 75px; " for="password">Password:</label>
+            <input type="password" name="password" placeholder="Enter Password"><br>
+        </h3>
+        
+                
+            <br><div style = "float:left; width: 400px;  ">&nbsp;</div><a href="{% url 'sign-up' %}"> Sign up</a><br>
+
+        <h5>
+            <br><div style = "float:left; ">&nbsp;</div><input type="submit" class= "button button" value="Sign in">
+        </h5>
             <p>{{error}}</p>
         </form>
         
