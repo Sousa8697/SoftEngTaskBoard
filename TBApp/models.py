@@ -31,8 +31,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title+" "+self.accountOwner
-<<<<<<< HEAD
-=======
     
     def toDo(self):
         self.section = 'to-do'
@@ -47,4 +45,3 @@ class Task(models.Model):
         self.save(update_fields=('section',))
 # Class Task(models.Model):
 
->>>>>>> Carlos_Branch

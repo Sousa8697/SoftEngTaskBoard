@@ -32,13 +32,14 @@ li a:hover:not(.active) {
             </style>
         <meta charset="utf-8">
         <title>Example</title>
+        <script src="https://use.fontawesome.com/999673cd6a.js"></script>
     </head>
     <body>
             
             <ul>
-                <li style = "float:right"><a  href="accounts/sign-in">Sign Out</a></li>
-                <li style = "float:right"><a   href="/accounts/profile">Profile</a></li>
-                <li style = "float:right"><a   href="#send to index page not sure how">Home</a></li>
+                <li style = "float:right"><a  href="{% url 'logout' %}">Sign Out</a></li>
+                <li style = "float:right"><a   href="{% url 'profile' %}">Profile</a></li>
+                <li style = "float:right"><a   href="{% url 'home' %}">Home</a></li>
 
                   </ul>
 

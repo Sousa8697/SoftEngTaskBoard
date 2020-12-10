@@ -37,8 +37,11 @@ li a:hover:not(.active) {
     margin-left: 15%;
     margin-top: 5%;
     text-align: center;
+    justify-content: center;
 }
 .task-section{
+    min-width: 200px;
+    max-width: 200px;
     min-height: 500px;
     list-style: none;
     color: black;
@@ -53,6 +56,8 @@ li a:hover:not(.active) {
             </style>
         <meta charset="utf-8">
         <title>Home</title>
+        <script src="https://use.fontawesome.com/999673cd6a.js"></script>
+
     </head>
     <body>
         <div class="navigationBar">
@@ -75,7 +80,7 @@ li a:hover:not(.active) {
                 <form method="GET">
                     <ul class="task-section">
                         {% for task in todoTasks %}
-                            <li>{{task.title}}<button name="toDoing" value="{{task.id}}">Push to Doing</button></li>
+                            <li>{{task.title}}<button name="toDoing" value="{{task.id}}"><i class="fa fa-angle-right"></i></button></li>
                         {% endfor %}    
                     </ul>
                 </form>
@@ -85,7 +90,7 @@ li a:hover:not(.active) {
                 <form method="GET">
                     <ul class="task-section">
                         {% for task in doingTasks %}
-                            <li><button name="toDo" value="{{task.id}}">Push to Do</button>{{task.title}}<button name="toDone" value="{{task.id}}">Push to Done</button></li>
+                            <li><button name="toDo" value="{{task.id}}"><i class="fa fa-angle-left" aria-hidden="true"></i></button>{{task.title}}<button name="toDone" value="{{task.id}}"><i class="fa fa-angle-right"></i></button></li>
                         {% endfor %}    
                     </ul>
                 </form>
@@ -95,7 +100,7 @@ li a:hover:not(.active) {
                 <form method="GET">
                     <ul class="task-section">
                         {% for task in doneTasks %}
-                            <li><button name="toDoing" value="{{task.id}}">Push to Doing</button>{{task.title}}</li>
+                            <li><button name="toDoing" value="{{task.id}}"><i class="fa fa-angle-left" aria-hidden="true"></i></button>{{task.title}}</li>
                         {% endfor %}
                     </ul>
                 </form>
