@@ -53,21 +53,9 @@
                 <h1>Sign Up</h1>
                 <form method="post">
                     {% csrf_token %}
-                    <h2>
-                    <label for="email">Email:</label>
-                    <input type="text" name="email"><br>
-                    </h2>
-                    <h3>
-                    <label  for="username">Username:</label>
-                    <input type="text" name="username"><br>
-                    </h3>
-                    <h4>
-                    <label  for="password">Password:</label>
-                    <input type="text" name="password"><br>
-                </h4>
-                <h5>
-                        <input type="submit" class= "button button" value="Sign Up"> 
-                </h5>
+                    {{form.as_p}}
+                    {{errors.as_p}}
+                    <input type="submit" class= "button button" value="Sign Up"> 
                 </form>
     </body>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>

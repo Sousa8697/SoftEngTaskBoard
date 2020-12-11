@@ -68,9 +68,11 @@ def signUp(request):
     form = UserForm()
     errors = ""
     if request.method == "POST":
-        profileForm = UserForm(request.POST)
+        profileForm = UserForm(data=request.POST)
         if profileForm.is_valid():
-            profileForm.save(commit=True)
+            user = profileForm.save()
+            user.set_password(user.password)
+            user.save()
             return HttpResponseRedirect(reverse('home'))
         else:
             errors = profileForm.errors

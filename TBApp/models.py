@@ -30,7 +30,7 @@ class Task(models.Model):
     section = models.CharField(max_length=6, choices=SECTION_CHOICES, default='to-do')
 
     def __str__(self):
-        return self.title+" "+self.accountOwner
+        return self.title
     
     def toDo(self):
         self.section = 'to-do'

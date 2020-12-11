@@ -4,9 +4,10 @@ from .models import Account
 from .models import Task
 
 class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
-        fields = ('first_name','last_name','username','email','password')
+        fields = ('first_name','last_name','username','email', 'password')
 ''' Forms Needed:
     New Task Form
     Sign-In Form
