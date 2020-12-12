@@ -133,11 +133,11 @@ li a:hover:not(.active) {
     background-color: #2B9348;
     color: white;
     text-align: center;
-    margin: 35% auto;
+    margin: 15% auto;
     /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid white;
-    width: 50%;
+    width: 30%;
     /* Could be more or less, depending on screen size */
 }
 
@@ -267,7 +267,7 @@ form.sign-up a:hover{
     width: 70px;
     height: 25px;
 } 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
     /* Index.html styling for screen width less than 800px */
     .main-section {
         display: grid;
@@ -285,5 +285,8 @@ form.sign-up a:hover{
     .task-section {
         min-width: 300px;
         min-height: 200px;
+    }
+    .modal-content {
+        width: 50%;
     }
 }
