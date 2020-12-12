@@ -1,127 +1,86 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang=en>
-    <head>
-        <style>
-            .button {background-color: #2B9348;}
-              body {
-                background-color: #2B9348;
-            }
-            ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #DDDF00;
-}
 
-li {
-  float: left;
-}
+<head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
 
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #DDDF00;
-}
-.main-section{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    column-gap: 2em;
-    width: 70%;
-    margin-left: 15%;
-    margin-top: 5%;
-    text-align: center;
-    justify-content: center;
-}
-.task-section{
-    min-width: 200px;
-    max-width: 200px;
-    min-height: 500px;
-    list-style: none;
-    color: black;
-}
-.new-task{
-    display: none;
-}
-.task-section > li {
-    float: none;
-}
-            
-            </style>
-        <meta charset="utf-8">
-        <title>Home</title>
-        <script src="https://use.fontawesome.com/999673cd6a.js"></script>
-
-    </head>
-    <body>
-        <div class="navigationBar">
-            <ul>
-                <li style = "float:right"><a  href="{% url 'logout' %}">Sign Out</a></li> 
-                <li style = "float:right"><a   href="{% url 'profile' %}">Profile</a></li>
-                <li style = "float:right"><a   href="{% url 'home' %}">Home</a></li>
-                <br><div style = "float:left; width: 50px; ">&nbsp;</div><button id="addTask" class="button button" >Add Task </button>
-            </ul>
-            <form action="" class="new-task" method="post">
-                {% csrf_token %}
-                {{task.as_p}}
-                {{errors.as_p}}
-                <input type="submit" value="Create New Task">
+<body>
+    <div class="navigationBar">
+        <ul>
+            <li style="float:right"><a href="{% url 'logout' %}">Sign Out</a></li>
+            <li style="float:right"><a href="{% url 'profile' %}">Profile</a></li>
+            <li style="float:right"><a href="{% url 'home' %}">Home</a></li>
+            <br>
+            <div style="float:left; width: 50px; margin-bottom: 15px;">&nbsp;</div><button id="addTask"
+                class="button button">Add Task </button>
+        </ul>
+        <form action="" class="new-task" method="post">
+            {% csrf_token %}
+            {{task.as_p}}
+            {{errors.as_p}}
+            <input type="submit" value="Create New Task">
+        </form>
+    </div>
+    <div class="main-section">
+        <div class="to-do">
+            <h3>To-Do</h3>
+            <form method="GET">
+                <ul class="task-section">
+                    {% for task in todoTasks %}
+                    <li><span value="{{task.id}}">{{task.title}}</span><button class="right" name="toDoing"
+                            value="{{task.id}}"><i class="fa fa-angle-right"></i></button></li>
+                    {% endfor %}
+                </ul>
             </form>
         </div>
-        <div class="main-section">
-            <div class="to-do">
-                <h3>To-Do</h3>
-                <form method="GET">
-                    <ul class="task-section">
-                        {% for task in todoTasks %}
-                            <li>{{task.title}}<button name="toDoing" value="{{task.id}}"><i class="fa fa-angle-right"></i></button></li>
-                        {% endfor %}    
-                    </ul>
-                </form>
-            </div>
-            <div class="doing">
-                <h3>Doing</h3>
-                <form method="GET">
-                    <ul class="task-section">
-                        {% for task in doingTasks %}
-                            <li><button name="toDo" value="{{task.id}}"><i class="fa fa-angle-left" aria-hidden="true"></i></button>{{task.title}}<button name="toDone" value="{{task.id}}"><i class="fa fa-angle-right"></i></button></li>
-                        {% endfor %}    
-                    </ul>
-                </form>
-            </div>
-            <div class="done">
-                <h3>Done</h3>
-                <form method="GET">
-                    <ul class="task-section">
-                        {% for task in doneTasks %}
-                            <li><button name="toDoing" value="{{task.id}}"><i class="fa fa-angle-left" aria-hidden="true"></i></button>{{task.title}}</li>
-                        {% endfor %}
-                    </ul>
-                </form>
-            </div>
+        <div class="doing">
+            <h3>Doing</h3>
+            <form method="GET">
+                <ul class="task-section">
+                    {% for task in doingTasks %}
+                    <li><button class="left" name="toDo" value="{{task.id}}"><i class="fa fa-angle-left"
+                                aria-hidden="true"></i></button><span value="{{task.id}}">{{task.title}}</span><button
+                            class="right" name="toDone" value="{{task.id}}"><i class="fa fa-angle-right"></i></button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </form>
         </div>
-    </body>
-    <script>
-        //We get the form and the add task button
-        var taskForm = document.querySelector(".new-task");
-        var addTaskButton  = document.querySelector("#addTask");
-        var taskFormOpen = false;
-        //We check if the buttons been clicked and if so then we show the form
-        //And we close the form if its open and we clicked the button
-        addTaskButton.addEventListener("click",function(){
-            if(taskFormOpen){
-                taskForm.style.display = "none";
-                taskFormOpen = false;
-            }else{
-                taskForm.style.display = "block";
-                taskFormOpen = true;
-            }
-        })
-    </script>
+        <div class="done">
+            <h3>Done</h3>
+            <form method="GET">
+                <ul class="task-section">
+                    {% for task in doneTasks %}
+                    <li><button class="left" name="toDoing" value="{{task.id}}"><i class="fa fa-angle-left"
+                                aria-hidden="true"></i></button><span value="{{task.id}}">{{task.title}}</span><button
+                            class="right" name="delete" value="{{task.id}}"><i class="fa fa-trash"
+                                aria-hidden="true"></i></button></li>
+                    {% endfor %}
+                </ul>
+            </form>
+        </div>
+    </div>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 id="task-title"></h1>
+            <h3 id="task-due-date">
+                </h6>
+                <p id="task-description"></p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="{% static 'js/index.js'%}"></script>
+{% autoescape off %}
+<script>
+    var taskList = {{ allTasks }};
+    addTaskInfo(taskList);
+</script>
+{% endautoescape %}
+<script type="text/javascript" src="https://use.fontawesome.com/999673cd6a.js"></script>
+
 </html>

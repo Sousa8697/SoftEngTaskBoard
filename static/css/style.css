@@ -1,0 +1,289 @@
+/* Index.html styling */
+.button {
+    background-color: #2B9348;
+    color: white;
+}
+
+body {
+    background-color: #2B9348;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #DDDF00;
+    border-radius: 5px;
+}
+
+.new-task {
+    color: white;
+}
+
+.new-task>input[type="submit"] {
+    background-color: #DDDF00;
+    color: #2B9348;
+    border: 1px solid white;
+}
+
+ul li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #2B9348;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #80B918;
+}
+
+h3 {
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: #DDDF00;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 4em;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    text-align: center;
+    justify-content: center;
+}
+
+.task-section {
+    min-width: 200px;
+    width:auto;
+    max-width: 500px;
+    min-height: 500px;
+    list-style: none;
+    color: white;
+}
+
+.new-task {
+    display: none;
+}
+
+.new-task input[name="title"] {
+    margin-left: 45px;
+}
+
+.new-task input[name="due_date"] {
+    margin-left: 17px;
+}
+
+.new-task input[type="submit"] {
+    margin-left: 115px;
+}
+
+.task-section > li {
+    margin: 2%;
+    padding: 5%;
+    background-color: #2B9348;
+    float: none;
+    border-radius: 5px;
+}
+
+.task-section>li>button {
+    border-radius: 5px;
+    background-color: #DDDF00;
+    color: #2B9348;
+}
+
+.task-section>li>button.right {
+    margin-left: .35em;
+}
+
+.task-section>li>button.left {
+    margin-right: .35em;
+}
+
+.task-info {
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #2B9348;
+    color: white;
+    text-align: center;
+    margin: 35% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid white;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* profile.html styling */
+
+.profile-section {
+    margin-top: 25vh;
+    text-align: center;
+    color: white;
+  }
+
+  .profile-image {
+    background-color: #DDDF00;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+  }
+
+  .profile-image>img {
+    width: 250px;
+    height: 250px;
+    padding: 15%;
+    padding-top: 0;
+  }
+
+/* sign-in.html styling */
+
+html.sign-in, body.sign-in{
+    height:100%;
+    width:100%;
+    margin:0;
+}
+body.sign-in {
+    display:flex;
+    background-color: #2B9348;
+    color: white;
+
+}
+form.sign-in{
+    margin:auto;
+}
+.sign-in-button {
+    float: right;
+    background-color: #DDDF00;
+    width: 70px;
+    height: 25px;
+    color:#2B9348;
+}
+form.sign-in input{
+    margin-bottom: 1em;
+}
+form.sign-in input[name="password"]{
+    margin-left: 3px;
+}
+form.sign-in a{
+    text-decoration: none;
+    color: white;
+ }
+form.sign-in a:hover{
+     text-decoration: underline;
+     color:black;
+ }
+form.sign-in label{
+    font-weight: bold;
+}
+
+/* sign-up.html styling */
+
+html.sign-up, body.sign-up{
+    height:100%;
+    width:100%;
+    margin:0;
+}
+body.sign-up {
+    display: flex;
+    background-color: #2B9348;
+    color: white;
+}
+form.sign-up{
+    margin: auto;
+    font-weight: bold;
+}
+form.sign-up p{
+    margin-bottom: 10%;
+}
+form.sign-up input[name="password"]{
+    margin-left: 30px;
+}
+form.sign-up input[name="username"]{
+    margin-left: 27px;
+}
+form.sign-up input[name="last_name"]{
+    margin-left: 27px;
+}
+form.sign-up input[name="first_name"]{
+    margin-left: 24px;
+}
+form.sign-up a{
+    text-decoration: none;
+    color: white;
+ }
+form.sign-up a:hover{
+     text-decoration: underline;
+     color:black;
+ }
+.sign-up-button {
+    float: right;
+    background-color: #DDDF00;
+    color:#2B9348;
+    width: 70px;
+    height: 25px;
+} 
+@media only screen and (max-width: 800px) {
+    /* Index.html styling for screen width less than 800px */
+    .main-section {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: auto auto auto;
+        row-gap: 1em;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .task-section {
+        min-width: 300px;
+        min-height: 200px;
+    }
+}

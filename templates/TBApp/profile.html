@@ -1,54 +1,34 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang=en>
-    <head>
-        <style>
-            body {
-                background-color: #2B9348;
-            }
-            ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #DDDF00;
-}
 
-li {
-  float: left;
-}
+<head>
+  <meta charset="utf-8">
+  <title>Example</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="https://use.fontawesome.com/999673cd6a.js"></script>
+</head>
 
-li a {
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+<body>
 
-li a:hover:not(.active) {
-  background-color: #DDDF00;
-}
+  <ul>
+    <li style="float:right"><a href="{% url 'logout' %}">Sign Out</a></li>
+    <li style="float:right"><a href="{% url 'profile' %}">Profile</a></li>
+    <li style="float:right"><a href="{% url 'home' %}">Home</a></li>
 
-            </style>
-        <meta charset="utf-8">
-        <title>Example</title>
-        <script src="https://use.fontawesome.com/999673cd6a.js"></script>
-    </head>
-    <body>
-            
-            <ul>
-                <li style = "float:right"><a  href="{% url 'logout' %}">Sign Out</a></li>
-                <li style = "float:right"><a   href="{% url 'profile' %}">Profile</a></li>
-                <li style = "float:right"><a   href="{% url 'home' %}">Home</a></li>
-
-                  </ul>
-
-            <h3> Username: {{ user.username }} </h3>
-            <h3> Email: {{ user.email }}</h3>
-            <h3> First Name: {{ user.first_name }}</h3>
-            <h3> Last Name: {{ user.last_name }}</h3>
-
-
-
-    </body>
+  </ul>
+  <div class="profile-section">
+    <div class="profile-image">
+      <img src="{% static 'images/defaultProfile.png'%}" alt="Profile Image">
+    </div>
+    <h3> Username: {{ user.username }} </h3>
+    {% if user.email %}
+    <h3> Email: {{ user.email }}</h3>
+    {% endif %}
+    {% if user.first_name and user.last_name %}
+    <h3>Name: {{ user.first_name }} {{ user.last_name}}</h3>
+    {% endif %}
+  </div>
+</body>
+<script src="https://use.fontawesome.com/999673cd6a.js"></script>
 </html>

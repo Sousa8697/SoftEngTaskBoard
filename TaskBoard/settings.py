@@ -26,6 +26,9 @@ SECRET_KEY = '1uxv7o(py&x%lrdi_n%n$93@*8-hzd+tmpj88d$n=o79&l)^fr'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+SECURE_SSL_REDIRECT = False
 
 
 # Application definition

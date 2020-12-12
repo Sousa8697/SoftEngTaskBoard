@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
+import json
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from TBApp.forms import UserForm
@@ -31,6 +32,13 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home'))
 
+def allTasks(request):
+    data = Task.objects.filter(accountOwner_id=request.user.id)
+    dataDict = {}
+    for task in data:
+        dataDict[task.id] = {"title":str(task.title), "due date":str(task.due_date),"description":str(task.description)}
+    return json.dumps(dataDict)
+
 @login_required(login_url="/accounts/sign-in/")
 def home(request):
     taskForm = NewTaskForm()
@@ -58,9 +66,13 @@ def home(request):
             taskId = request.GET.get('toDone')
             task = Task.objects.get(id = int(taskId))
             task.toDone()
+        elif 'delete' in request.GET:
+            taskId = request.GET.get('delete')
+            Task.objects.get(id=int(taskId)).delete()
     context['todoTasks'] = Task.objects.filter(section="to-do", accountOwner_id=request.user.id)
     context['doingTasks'] = Task.objects.filter(section="doing", accountOwner_id=request.user.id)
     context['doneTasks'] = Task.objects.filter(section="done", accountOwner_id=request.user.id)
+    context['allTasks']  = allTasks(request)
     return render(request,"TBApp/index.html", context)
 
 

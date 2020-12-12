@@ -1,62 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang=en>
-    <head>
-        <style>
-            .button {background-color: #DDDF00;
-                margin-left:150px;
-                width: 70px;
-                height: 25px;
-                }
-            body {
-                background-color: #2B9348;
-            }
-            h1 {text-align: center;
-            margin-top:200px;
-            }
-            h2 {
-                position:fixed;
-                left: 600px;
-                font-size: 16px;
-                margin-bottom: 20px;
-                
-                
-            }
-            h3{
-                position:fixed;
-                left: 571px;
-                top: 300px;
-                font-size: 16px;
-                
-            }
+<html class="sign-up" lang=en>
 
-            h4{
-                position:fixed;
-                left: 575px;
-                top: 340px;
-                font-size: 16px;
-            }
-            h5{
-                position:fixed;
-                left: 570px;
-                top: 400px;
-                font-size: 16px;
-            }
-            body {
-        text-align: center;
-      }
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
 
-            </style>
-        <meta charset="utf-8">
-        <title>Sign Up</title>   
-    </head>
-    <body>
-                <h1>Sign Up</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    {{errors.as_p}}
-                    <input type="submit" class= "button button" value="Sign Up"> 
-                </form>
-    </body>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+<body class="sign-up">
+    <form class="sign-up" method="post">
+        <h1>Sign Up</h1>
+        {% csrf_token %}
+        {{form.as_p}}
+        {{errors.as_p}}
+        <a href="{% url 'sign-In' %}">Sign In</a>
+        <input type="submit" class="sign-up-button" value="Sign Up">
+    </form>
+</body>
+<script>
+    var helpText = document.querySelector(".helptext");
+    helpText.textContent = "";
+</script>
 </html>
