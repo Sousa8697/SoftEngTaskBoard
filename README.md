@@ -6,9 +6,9 @@ This is a Task Board web application developed using HTML5, CSS3, JS, Python, an
 
 ### Group Roles
 
-Front-End: Molly Croke\
-Back-End: Nick Almeder\
-Full-Stack: Carlos Sousa
+<ins>Front-End:<ins> Molly Croke  
+<ins>Back-End:<ins> Nick Almeder  
+<ins>Full-Stack:<ins> Carlos Sousa
 
 ### Planning
 
@@ -17,7 +17,7 @@ We used many modern tools to plan and develop this application. We would meet up
 ### Software Design
 
 Our software consists of models, views, and URLs. In our application we created a URL for each specific page on our site. Each URL was then connected to a Python function, called a view, that returns a rendered HTML document that we choose. Within these functions we can import our database tables and call pre-built methods to create queries and return a queryset that can then be rendered in our HTML document using Django template tagging. The design for our database consists of three tables, a User table, an Account table, and a Task table. These tables are connected through foreign keys, our Account and User tables have a 1 to 1 relationship while our Account and Task tables have a 1 to M relationship.
-You can also see another representation of our design through our use case diagram ![use-case diagram image](FinalProjectUseCase.png) and our schema diagram ![schema diagram image](Diagram.png).
+You can also see another representation of our design through our use case diagram ![use-case diagram image](FinalProjectUseCase.png) and our schema diagram ![schema diagram image](Diagram.png)
 
 ### Testing
 
