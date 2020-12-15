@@ -12,7 +12,7 @@ This is a Task Board web application developed using HTML5, CSS3, JS, Python, an
 
 ### Planning
 
-We used many modern tools to plan and develop this application. We would meet up for weekly scrum meetings to talk about the product using Discord and designed the layout of the website using Figma, a UI tool. The web application design can be found ![here](https://www.figma.com/file/SGmS1xOpopGxiCIE9D3Njf/SoftEngMockup?node-id=0%3A1).
+We used many modern tools to plan and develop this application. We would meet up for weekly scrum meetings to talk about the product using Discord and designed the layout of the website using Figma, a UI tool. The web application design can be found [here](https://www.figma.com/file/SGmS1xOpopGxiCIE9D3Njf/SoftEngMockup?node-id=0%3A1).
 
 ### Software Design
 
