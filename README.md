@@ -6,8 +6,8 @@ This is a Task Board web application developed using HTML5, CSS3, JS, Python, an
 
 ### Group Roles
 
-Front-End: Molly Croke
-Back-End: Nick Almeder
+Front-End: Molly Croke\
+Back-End: Nick Almeder\
 Full-Stack: Carlos Sousa
 
 ### Planning
